@@ -29,10 +29,7 @@ export function Sidebar() {
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[42%] lg:flex-col lg:justify-between lg:py-24 lg:pr-16">
       <div>
-        <p className="font-mono text-xs tracking-[0.35em] text-funky-lime uppercase">
-          Portfolio v1
-        </p>
-        <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">
+        <h1 className="font-display mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
           <span className="gradient-text">{site.name}</span>
         </h1>
         <h2 className="mt-3 text-lg font-medium text-slate-200 sm:text-xl">
@@ -54,15 +51,15 @@ export function Sidebar() {
                   <span
                     className={`h-px transition-all duration-300 ${
                       active === item.id
-                        ? "w-16 bg-funky-cyan"
-                        : "w-8 bg-slate-600 group-hover:w-16 group-hover:bg-funky-magenta"
+                        ? "bg-funky-cyan w-16"
+                        : "group-hover:bg-funky-magenta w-8 bg-slate-600 group-hover:w-16"
                     }`}
                   />
                   <span
                     className={
                       active === item.id
                         ? "text-funky-cyan"
-                        : "text-slate-400 group-hover:text-funky-magenta"
+                        : "group-hover:text-funky-magenta text-slate-400"
                     }
                   >
                     {item.label}
@@ -110,7 +107,7 @@ function ArrowIcon() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="inline h-4 w-4 translate-y-px transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+      className="inline h-4 w-4 translate-y-px transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
       aria-hidden
     >
       <path

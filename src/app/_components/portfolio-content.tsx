@@ -2,7 +2,10 @@ import {
   about,
   education,
   experience,
+  hobbies,
   industryProjects,
+  kaggleProfile,
+  kaggleWork,
   personalProjects,
   site,
   skills,
@@ -23,6 +26,28 @@ export function PortfolioContent() {
               {paragraph}
             </p>
           ))}
+        </div>
+
+        <div className="mt-10" aria-labelledby="hobbies-heading">
+          <h3
+            id="hobbies-heading"
+            className="font-mono text-xs font-semibold tracking-widest text-slate-500 uppercase"
+          >
+            Off the clock
+          </h3>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+            {hobbies.map((hobby) => (
+              <li
+                key={hobby.title}
+                className="rounded-xl border border-white/5 bg-white/[0.02] p-5 transition-colors hover:border-funky-coral/30 hover:bg-funky-coral/[0.03]"
+              >
+                <h4 className="font-medium text-funky-coral">{hobby.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                  {hobby.description}
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -120,6 +145,28 @@ export function PortfolioContent() {
             ))}
           </ul>
         </div>
+      </section>
+
+      <section id="kaggle" className="mt-24 scroll-mt-24">
+        <SectionHeading id="kaggle-heading">Kaggle</SectionHeading>
+        <p className="mt-6 max-w-2xl leading-relaxed text-slate-300">
+          {kaggleProfile.summary}{" "}
+          <a
+            href={kaggleProfile.href}
+            target="_blank"
+            rel="noreferrer"
+            className="link-funky text-funky-magenta"
+          >
+            View profile →
+          </a>
+        </p>
+        <ul className="mt-8 space-y-4" aria-labelledby="kaggle-heading">
+          {kaggleWork.map((project) => (
+            <li key={project.title}>
+              <ProjectCard project={project} />
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section id="contact" className="mt-24 scroll-mt-24">

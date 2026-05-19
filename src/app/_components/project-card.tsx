@@ -1,7 +1,7 @@
 import type { Project } from "~/data/portfolio";
 
 export function ProjectCard({ project }: { project: Project }) {
-  const hasLinks = project.githubUrl ?? project.deployedUrl;
+  const hasLinks = project.githubUrl ?? project.deployedUrl ?? project.kaggleUrl;
 
   return (
     <article className="project-card group relative -mx-4 rounded-xl px-4 py-5 sm:-mx-6 sm:px-6">
@@ -18,6 +18,9 @@ export function ProjectCard({ project }: { project: Project }) {
               ) : null}
               {project.deployedUrl ? (
                 <ProjectLink href={project.deployedUrl} label="Live Site" variant="deployed" />
+              ) : null}
+              {project.kaggleUrl ? (
+                <ProjectLink href={project.kaggleUrl} label="Kaggle" variant="kaggle" />
               ) : null}
             </div>
           ) : null}
@@ -45,12 +48,14 @@ function ProjectLink({
 }: {
   href: string;
   label: string;
-  variant: "github" | "deployed";
+  variant: "github" | "deployed" | "kaggle";
 }) {
   const styles =
     variant === "github"
       ? "border-funky-cyan/30 bg-funky-cyan/5 text-funky-cyan hover:border-funky-cyan/60 hover:bg-funky-cyan/10"
-      : "border-funky-lime/30 bg-funky-lime/5 text-funky-lime hover:border-funky-lime/60 hover:bg-funky-lime/10";
+      : variant === "kaggle"
+        ? "border-funky-magenta/30 bg-funky-magenta/5 text-funky-magenta hover:border-funky-magenta/60 hover:bg-funky-magenta/10"
+        : "border-funky-lime/30 bg-funky-lime/5 text-funky-lime hover:border-funky-lime/60 hover:bg-funky-lime/10";
 
   return (
     <a

@@ -12,6 +12,7 @@ export const nav = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
+  { id: "kaggle", label: "Kaggle" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -28,6 +29,10 @@ export const social = [
     label: "Email",
     href: "mailto:shauryad224@gmail.com",
   },
+  {
+    label: "Kaggle",
+    href: "https://www.kaggle.com/shauryadixit123",
+  },
 ] as const;
 
 export const about = {
@@ -35,8 +40,27 @@ export const about = {
     "I'm a software developer with experience leading teams, owning projects end-to-end, and building reliable applications from the ground up. I care about clean architecture, measurable impact, and shipping features that hold up under real traffic.",
     "Currently at OneMind Services, I'm improving the JAMS CRM platform—stability, performance, and disaster recovery across AWS, Kubernetes, and Terraform. Before that, I spent two years at Wiz Freight building SaaS products used at serious scale.",
     "My stack spans TypeScript, Go, Python, React/Next.js, and cloud-native tooling. I enjoy the overlap between backend systems, developer experience, and polished interfaces.",
-    "When I'm not coding, you'll find me exploring new tech, contributing to side projects, or plotting the next thing to automate.",
+    "When I'm not coding, you'll find me on Kaggle notebooks, behind a djembe, or out hunting mushrooms—plus the usual side projects and things worth automating.",
   ],
+} as const;
+
+export const hobbies = [
+  {
+    title: "Djembe",
+    description:
+      "West African hand drumming—polyrhythms, improvisation, and the occasional backyard jam when the neighbors are forgiving.",
+  },
+  {
+    title: "Mushroom foraging",
+    description:
+      "Weekend walks for chanterelles, oysters, and other edibles. Identify twice, eat once—and leave the forest better than you found it.",
+  },
+] as const;
+
+export const kaggleProfile = {
+  href: "https://www.kaggle.com/shauryadixit123",
+  summary:
+    "Competitions, public notebooks, and dataset experiments—mostly tabular ML, statistics, and PyTorch when the problem calls for it.",
 } as const;
 
 export const experience = [
@@ -115,7 +139,25 @@ export type Project = {
   tech: readonly string[];
   githubUrl?: string;
   deployedUrl?: string;
+  kaggleUrl?: string;
 };
+
+export const kaggleWork: readonly Project[] = [
+  {
+    title: "Competition work",
+    description:
+      "End-to-end pipelines on public benchmarks—EDA, feature engineering, validation strategy, and ensembling with reproducible notebooks.",
+    tech: ["Python", "PyTorch", "Pandas", "Statistics"],
+    kaggleUrl: "https://www.kaggle.com/shauryadixit123/competitions",
+  },
+  {
+    title: "Public notebooks",
+    description:
+      "Shareable experiments and walkthroughs—clear plots, cross-validation, and write-ups that hold up when you revisit them months later.",
+    tech: ["Jupyter", "Matplotlib", "Scikit-learn", "Seaborn"],
+    kaggleUrl: "https://www.kaggle.com/shauryadixit123/code",
+  },
+];
 
 export const industryProjects: readonly Project[] = [
   {
