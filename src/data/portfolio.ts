@@ -148,7 +148,7 @@ export const personalProjects: readonly Project[] = [
   {
     title: "RNA Sequence Analysis Chat",
     description:
-      "Compare DNA/RNA sequences from FASTA files through a chat UI—upload files, run pairwise dynamic programming or dot-product analysis in parallel, and explore score matrices as interactive Plotly scatter plots.",
+      "Compare DNA/RNA sequences from FASTA files through a chat UI—upload files, run pairwise dynamic programming or dot-product analysis in parallel, and explore score matrices as interactive Plotly scatter plots. Runs upto ~3547×3547 ≈ 12M ints per pair",
     tech: ["Go", "Gin", "Plotly.js", "FASTA", "Goroutines"],
     githubUrl: "https://github.com/ShauryaDixit123/seq-analysis-chat",
     deployedUrl: "https://seq-analysis-chat.vercel.app/",
