@@ -52,7 +52,14 @@ export const experience = [
       "Integrated Allure test reporting into AWS CodeBuild pipelines for better pre-merge visibility in environment branches.",
       "Helped stand up a new dev environment on EKS with IAM, CodePipeline, CodeBuild, RDS, ECR, VPC, and related AWS services.",
     ],
-    tech: ["TypeScript", "AWS", "Kubernetes", "Terraform", "CodeBuild", "Allure"],
+    tech: [
+      "TypeScript",
+      "AWS",
+      "Kubernetes",
+      "Terraform",
+      "CodeBuild",
+      "Allure",
+    ],
   },
   {
     period: "2022 — 2024",
@@ -102,40 +109,58 @@ export const education = {
   note: "Campus Ambassador (2019) · Rendezvous IIT Delhi, Ensemble, XLRI Jamshedpur",
 } as const;
 
-export const projects = [
+export type Project = {
+  title: string;
+  description: string;
+  tech: readonly string[];
+  githubUrl?: string;
+  deployedUrl?: string;
+};
+
+export const industryProjects: readonly Project[] = [
   {
     title: "JAMS CRM Platform",
     description:
       "Enterprise CRM improvements spanning performance, reliability, and disaster recovery—Kubernetes-native infra on AWS with Terraform and automated test reporting in CI.",
-    href: undefined,
     tech: ["AWS", "EKS", "Terraform", "Kubernetes", "TypeScript"],
-    featured: true,
   },
   {
     title: "Real-Time Shipment Tracking",
     description:
       "Cloud service enabling users to track freight shipments in real time—designed, built, and deployed end-to-end for Wiz Freight's logistics stack.",
-    href: undefined,
     tech: ["REST APIs", "AWS", "PostgreSQL", "React"],
-    featured: true,
   },
   {
     title: "Elyxr Document Generator",
     description:
       "Web app for dynamic document generation inside SaaS products—built from scratch and reduced bill generation time by 47%.",
-    href: undefined,
     tech: ["Next.js", "React", "Node.js", "PDF Generation"],
-    featured: true,
   },
   {
     title: "SaaS Platform Integrations",
     description:
       "Payment and auth integrations across Elyxr CRM, Wiz Freight, Elyxr Docs, and Elyxr OMS—Razorpay, Chargebee, OAuth, and JWT flows at scale.",
-    href: undefined,
     tech: ["Razorpay", "Chargebee", "JWT", "REST", "MongoDB"],
-    featured: false,
   },
-] as const;
+];
+
+export const personalProjects: readonly Project[] = [
+  {
+    title: "RNA Sequence Analysis Chat",
+    description:
+      "Compare DNA/RNA sequences from FASTA files through a chat UI—upload files, run pairwise dynamic programming or dot-product analysis in parallel, and explore score matrices as interactive Plotly scatter plots.",
+    tech: ["Go", "Gin", "Plotly.js", "FASTA", "Goroutines"],
+    githubUrl: "https://github.com/ShauryaDixit123/seq-analysis-chat",
+    deployedUrl: "https://seq-analysis-chat.vercel.app/",
+  },
+  {
+    title: "Developer Portfolio",
+    description:
+      "Personal portfolio site with a Brittany Chiang–inspired layout—responsive, accessible, and built with the T3 stack patterns.",
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+    githubUrl: "https://github.com/ShauryaDixit123/pf",
+  },
+];
 
 export const skills = [
   "JavaScript / TypeScript / ES6",
@@ -146,4 +171,9 @@ export const skills = [
   "Docker / Kafka / AWS",
   "REST APIs / OOP / Integration Testing",
   "Elasticsearch / Grafana",
+  "LangGraph / LangChain",
+  "Temporal",
+  "Distributed Systems",
+  "Machine Learning / PyTorch",
+  "Statistics",
 ] as const;

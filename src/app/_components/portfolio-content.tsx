@@ -2,12 +2,14 @@ import {
   about,
   education,
   experience,
-  projects,
+  industryProjects,
+  personalProjects,
   site,
   skills,
   social,
 } from "~/data/portfolio";
 
+import { ProjectCard } from "./project-card";
 import { SectionHeading } from "./section-heading";
 
 export function PortfolioContent() {
@@ -86,38 +88,38 @@ export function PortfolioContent() {
 
       <section id="projects" className="mt-24 scroll-mt-24">
         <SectionHeading id="projects-heading">Projects</SectionHeading>
-        <ul className="mt-8 space-y-4">
-          {projects.map((project) => (
-            <li key={project.title}>
-              <article className="project-card group relative -mx-4 rounded-xl px-4 py-5 sm:-mx-6 sm:px-6">
-                <div className="grid gap-4 sm:grid-cols-[1fr_7rem] sm:gap-8">
-                  <div>
-                    <h3 className="font-medium text-slate-100 transition-colors group-hover:text-funky-magenta">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                      {project.description}
-                    </p>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <li
-                          key={tech}
-                          className="font-mono text-[11px] text-slate-500"
-                        >
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div
-                    className="hidden aspect-square rounded-lg border border-dashed border-funky-magenta/30 bg-gradient-to-br from-funky-magenta/10 via-funky-cyan/5 to-funky-lime/10 sm:block"
-                    aria-hidden
-                  />
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
+
+        <div className="mt-10">
+          <h3
+            id="personal-projects-heading"
+            className="font-mono text-xs font-semibold tracking-widest text-slate-500 uppercase"
+          >
+            Personal Projects
+          </h3>
+          <ul className="mt-6 space-y-4" aria-labelledby="personal-projects-heading">
+            {personalProjects.map((project) => (
+              <li key={project.title}>
+                <ProjectCard project={project} />
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-14">
+          <h3
+            id="industry-projects-heading"
+            className="font-mono text-xs font-semibold tracking-widest text-slate-500 uppercase"
+          >
+            Industry Projects
+          </h3>
+          <ul className="mt-6 space-y-4" aria-labelledby="industry-projects-heading">
+            {industryProjects.map((project) => (
+              <li key={project.title}>
+                <ProjectCard project={project} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section id="contact" className="mt-24 scroll-mt-24">

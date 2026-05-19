@@ -118,7 +118,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/shauryadixit007/untitled folder/pf/generated/prisma",
+      "value": "/Users/shauryadixit007/pf/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -132,12 +132,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/shauryadixit007/untitled folder/pf/prisma/schema.prisma",
+    "sourceFilePath": "/Users/shauryadixit007/pf/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": null
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.19.3",
