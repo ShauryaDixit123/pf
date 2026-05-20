@@ -27,28 +27,6 @@ export function PortfolioContent() {
             </p>
           ))}
         </div>
-
-        <div className="mt-10" aria-labelledby="hobbies-heading">
-          <h3
-            id="hobbies-heading"
-            className="font-mono text-xs font-semibold tracking-widest text-slate-500 uppercase"
-          >
-            Off the clock
-          </h3>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-            {hobbies.map((hobby) => (
-              <li
-                key={hobby.title}
-                className="rounded-xl border border-white/5 bg-white/[0.02] p-5 transition-colors hover:border-funky-coral/30 hover:bg-funky-coral/[0.03]"
-              >
-                <h4 className="font-medium text-funky-coral">{hobby.title}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                  {hobby.description}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       <section id="experience" className="mt-24 scroll-mt-24">
@@ -59,7 +37,7 @@ export function PortfolioContent() {
               key={`${job.company}-${job.period}`}
               className="experience-card group relative -mx-4 rounded-lg px-4 py-6 sm:-mx-6 sm:px-6"
             >
-              <div className="absolute top-6 left-0 hidden font-mono text-xs text-funky-magenta/60 sm:block">
+              <div className="text-funky-magenta/60 absolute top-6 left-0 hidden font-mono text-xs sm:block">
                 {String(index + 1).padStart(2, "0")}
               </div>
               <div className="grid gap-2 sm:grid-cols-[7rem_1fr] sm:gap-8">
@@ -68,7 +46,7 @@ export function PortfolioContent() {
                 </p>
                 <div>
                   <h3 className="font-medium text-slate-100">
-                    <span className="transition-colors group-hover:text-funky-cyan">
+                    <span className="group-hover:text-funky-cyan transition-colors">
                       {job.title}
                     </span>
                     <span className="text-slate-500"> · </span>
@@ -78,7 +56,7 @@ export function PortfolioContent() {
                   <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-400">
                     {job.description.map((item) => (
                       <li key={item.slice(0, 48)} className="flex gap-2">
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-funky-magenta" />
+                        <span className="bg-funky-magenta mt-2 h-1 w-1 shrink-0 rounded-full" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -87,7 +65,7 @@ export function PortfolioContent() {
                     {job.tech.map((tech) => (
                       <li
                         key={tech}
-                        className="rounded-full border border-funky-cyan/20 bg-funky-cyan/5 px-2.5 py-1 font-mono text-[11px] text-funky-cyan"
+                        className="border-funky-cyan/20 bg-funky-cyan/5 text-funky-cyan rounded-full border px-2.5 py-1 font-mono text-[11px]"
                       >
                         {tech}
                       </li>
@@ -103,8 +81,12 @@ export function PortfolioContent() {
           <p className="font-mono text-xs tracking-widest text-slate-500 uppercase">
             Education
           </p>
-          <p className="mt-2 font-mono text-xs text-funky-lime">{education.period}</p>
-          <h3 className="mt-2 font-medium text-slate-100">{education.degree}</h3>
+          <p className="text-funky-lime mt-2 font-mono text-xs">
+            {education.period}
+          </p>
+          <h3 className="mt-2 font-medium text-slate-100">
+            {education.degree}
+          </h3>
           <p className="text-funky-cyan">{education.school}</p>
           <p className="mt-1 text-sm text-slate-500">{education.location}</p>
           <p className="mt-3 text-sm text-slate-400">{education.note}</p>
@@ -121,7 +103,10 @@ export function PortfolioContent() {
           >
             Personal Projects
           </h3>
-          <ul className="mt-6 space-y-4" aria-labelledby="personal-projects-heading">
+          <ul
+            className="mt-6 space-y-4"
+            aria-labelledby="personal-projects-heading"
+          >
             {personalProjects.map((project) => (
               <li key={project.title}>
                 <ProjectCard project={project} />
@@ -137,7 +122,10 @@ export function PortfolioContent() {
           >
             Industry Projects
           </h3>
-          <ul className="mt-6 space-y-4" aria-labelledby="industry-projects-heading">
+          <ul
+            className="mt-6 space-y-4"
+            aria-labelledby="industry-projects-heading"
+          >
             {industryProjects.map((project) => (
               <li key={project.title}>
                 <ProjectCard project={project} />
@@ -177,7 +165,10 @@ export function PortfolioContent() {
             conversations about backend systems, SaaS, or developer tooling.
           </p>
           <p className="mt-4">
-            <a href={`mailto:${site.email}`} className="link-funky group text-funky-cyan">
+            <a
+              href={`mailto:${site.email}`}
+              className="link-funky group text-funky-cyan"
+            >
               <span>{site.email}</span>
               <span className="inline-block transition-transform group-hover:translate-x-1">
                 →
@@ -210,25 +201,36 @@ export function PortfolioContent() {
           {skills.map((skill) => (
             <li
               key={skill}
-              className="skill-pill rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-400 transition-colors hover:border-funky-lime/40 hover:text-funky-lime"
+              className="skill-pill hover:border-funky-lime/40 hover:text-funky-lime rounded-full border border-white/10 px-3 py-1.5 text-xs text-slate-400 transition-colors"
             >
               {skill}
             </li>
           ))}
         </ul>
         <footer className="mt-16 text-center text-xs text-slate-600">
-          <p>
-            Inspired by{" "}
-            <a
-              href="https://brittanychiang.com/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-slate-500 transition-colors hover:text-funky-cyan"
+          <div className="mt-10" aria-labelledby="hobbies-heading">
+            <h3
+              id="hobbies-heading"
+              className="font-mono text-xs font-semibold tracking-widest text-slate-500 uppercase"
             >
-              brittanychiang.com
-            </a>
-            . Built with Next.js & Tailwind CSS.
-          </p>
+              Off the clock
+            </h3>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              {hobbies.map((hobby) => (
+                <li
+                  key={hobby.title}
+                  className="hover:border-funky-coral/30 hover:bg-funky-coral/[0.03] rounded-xl border border-white/5 bg-white/[0.02] p-5 transition-colors"
+                >
+                  <h4 className="text-funky-coral font-medium">
+                    {hobby.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                    {hobby.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </footer>
       </section>
     </div>
